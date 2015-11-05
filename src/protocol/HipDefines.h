@@ -1,0 +1,86 @@
+/*
+ * Copyright (c) 2015 Jani Pellikka <jpellikk@users.noreply.github.com>
+ */
+#ifndef HIPDEX_VPN_PROTOCOL_HIP_DEFINES_H
+#define HIPDEX_VPN_PROTOCOL_HIP_DEFINES_H
+
+#define HDX_TYPE_R1_COUNTER 128
+#define HDX_TYPE_PUZZLE 257
+#define HDX_TYPE_SOLUTION 321
+#define HDX_TYPE_SEQ 385
+#define HDX_TYPE_ACK 449
+#define HDX_TYPE_HIP_CIPHER 579
+#define HDX_TYPE_ENCRYPTED_KEY 643
+#define HDX_TYPE_HOST_ID 705
+#define HDX_TYPE_HIT_SUITE_LIST 715
+#define HDX_TYPE_ECHO_REQ_SIG 897
+#define HDX_TYPE_ECHO_RES_SIG 961
+#define HDX_TYPE_DH_GROUP_LIST 2151
+#define HDX_TYPE_HIP_MAC_3 31507
+
+#define HDX_TYPE_PACKET_I1 1
+#define HDX_TYPE_PACKET_R1 2
+#define HDX_TYPE_PACKET_I2 3
+#define HDX_TYPE_PACKET_R2 4
+
+#define HDX_TYPE_PACKET_UPDATE 16
+#define HDX_TYPE_PACKET_CLOSE 18
+#define HDX_TYPE_PACKET_CLOSE_ACK 19
+
+#define HDX_SIZE_PARAM_HDR 4
+#define HDX_SIZE_PACKET_HDR 40
+#define HDX_PROTOCOL_VERSION 2
+
+#define HDX_SIZE_ECHO_REQ 8
+#define HDX_IPPROTO_NONE 59
+
+#define HDX_LENGTH_HIT 16
+#define HDX_LENGTH_LSI 4
+
+#define HDX_DEFAULT_TIMEOUT 30
+#define HDX_RESEND_INTERVAL 1
+#define HDX_UPDATE_INTERVAL 5
+#define HDX_RESEND_TIMEOUT 5
+
+#define HDX_HIT_ECDH_DEX 8
+
+#define HDX_CIPHER_NULL_ENCRYPT 1
+#define HDX_CIPHER_AES_128_CTR 5
+#define HDX_CIPHER_AES_256_CTR 10
+
+#define DH_GROUP_ECP160 7
+#define DH_GROUP_ECP256 8
+#define DH_GROUP_ECP384 9
+#define DH_GROUP_ECP521 10
+#define DH_GROUP_ECP192 11
+#define DH_GROUP_ECP224 12
+
+#define HDX_DH_GRP_SECP192K1 11
+
+#define HDX_AVAIL_HIT_SUITES \
+	{HDX_HIT_ECDH_DEX}
+#define HDX_AVAIL_CIPHER_SUITES \
+	{HDX_CIPHER_AES_128_CTR, HDX_CIPHER_NULL_ENCRYPT}
+#define HDX_AVAIL_DH_GROUPS \
+	{DH_GROUP_ECP384, DH_GROUP_ECP256, DH_GROUP_ECP160}
+
+#define HDX_SIZE_RHASH 16 // AES-128 block size
+
+#define HDX_LENGTH_HIT_PREFIX 32
+#define HDX_LSI_NETMASK "255.0.0.0"
+
+#define HDX_DEFAULT_PUZZLE_COMPLEXITY 8
+#define HDX_DEFAULT_PUZZLE_LIFETIME 40
+#define HDX_DEFAULT_HOSTNAME ""
+
+#define HDX_ADD_FRIEND_STATE_CLASSES \
+	friend class HipState; \
+	friend class HipClosed; \
+	friend class HipClosing; \
+	friend class HipI1Sent; \
+	friend class HipI2Sent; \
+	friend class HipR2Sent; \
+	friend class HipEstablished; \
+	friend class HipUnassociated;
+
+#endif

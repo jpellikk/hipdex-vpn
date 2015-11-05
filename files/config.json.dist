@@ -1,0 +1,8 @@
+{
+	"signal-port": 10500,
+	"user-port": 10501,
+	"puzzle-complexity": 8,
+	"puzzle-lifetime": 40,
+	"hosts": [
+	]
+}

@@ -1,0 +1,59 @@
+
+** DEPENDECIES **
+
+Compilation environment requires the following packages:
+--------------------------------------------------------
+
+(1) build-essential
+(2) autotools-dev
+(3) automake
+(4) autoconf
+(5) libtool
+(6) pkg-config
+
+In a Debian based OS (e.g. Ubuntu) install everything in one go:
+
+   sudo apt-get install -y build-essential autotools-dev automake autoconf libtool pkg-config
+
+NOTE: C++11 support is required from your compiler!
+
+
+The following development packages are required for compilation:
+----------------------------------------------------------------
+
+(1) libjansson-dev
+(2) libnl-3-dev
+(3) libnl-route-3-dev
+(4) libboost-all-dev
+(5) openssl (from sources)
+
+In a Debian based OS (e.g. Ubuntu) install everything in one go (except OpenSSL):
+
+   sudo apt-get install -y libjansson-dev libnl-3-dev libnl-route-3-dev libboost-all-dev
+
+
+About installing OpenSSL:
+-------------------------
+
+- Download the latest OpenSSL sources from https://www.openssl.org
+- Compilation: ./config && make depend && make && sudo make install
+- Copy the generated *.pc files to where pkg-config can find them
+
+
+Debug build:
+------------
+
+To make a debug build, run the following command before 'make':
+
+   ./configure 'CXXFLAGS=-g -O0 -DDEBUG'
+
+
+** OPEN ISSUES & QUESTIONS **
+
+
+** TODO NEXT **
+
+  (1) Add sequence number to the TunEncrypted message class (for replay protection)
+  (2) Implement the TUN device setup correctly in the TunDeviceImpl.cpp file
+
+// EOF
